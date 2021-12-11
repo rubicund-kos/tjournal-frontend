@@ -1,0 +1,37 @@
+.sideComments {
+  width: 270px;
+  position: sticky;
+  right: 0;
+  top: 80px;
+  z-index: 1;
+}
+.sideCommentsContent {
+  max-width: 270px;
+}
+.title {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+//Style for CommentItem
+.commentItem {
+  margin-bottom: 20px;
+}
+
+.author {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+.avatar {
+  height: 25px !important;
+  width: 25px !important;
+  margin-right: 8px;
+}
+.commentText {
+  font-size: 15px;
+  line-height: 22px !important;
+}

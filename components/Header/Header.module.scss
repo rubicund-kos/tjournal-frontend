@@ -1,0 +1,54 @@
+@import "styles/variables";
+
+.header {
+  background-color: #fff4e2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 15px;
+  padding-right: 50px;
+  height: 60px;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}
+.headerBlock {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+.penButton {
+  background-color: #fff !important;
+  font-weight: bold !important;
+}
+.searchBlock {
+  position: relative;
+  margin-right: 15px;
+  margin-left: 15px;
+  width: 310px;
+
+  svg {
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    opacity: 0.3;
+  }
+
+  input {
+    width: 100%;
+    height: 40px;
+    border-radius: 10px;
+    background-color: rgba(0, 0, 0, 0.05);
+    font-size: 16px;
+    padding-left: 40px;
+    transition: all 0.1s ease-in-out;
+    border: 1px solid transparent;
+
+    &:hover,
+    &:focus {
+      background-color: #fff;
+      border-color: darken(#fff4e2, 15%);
+      box-shadow: 0 0 0 3px rgb(229 160 64 / 12%);
+    }
+  }
+}
