@@ -1,0 +1,52 @@
+.userBlock {
+  border-radius: 0 0 8px 8px !important;
+  padding: 20px 20px 0 20px;
+}
+
+.userInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+.userInfoAvatar {
+  border-radius: 8px;
+}
+
+.userInfoText {
+  margin-top: 15px !important;
+  margin-bottom: 15px !important;
+}
+
+.userBlockTabs {
+  button {
+    color: #000;
+    font-weight: 500;
+    text-transform: none;
+    font-size: 16px;
+  }
+}
+
+.emptyArticle {
+  margin-top: 25px;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.settingsButton {
+  height: 36px;
+  width: 36px;
+  min-width: auto !important;
+  margin-right: 10px;
+}
+
+
+.settingsForm {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 150px;
+
+}

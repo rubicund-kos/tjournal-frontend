@@ -30,13 +30,20 @@ const theme = createTheme({
                 boxShadow: "0 1px 1px rgb(0 0 0 / 10%), 0 2px 5px rgb(0 0 0 / 5%), 0 -1px 0 rgb(0 0 0 / 5%), -1px 0 0 rgb(0 0 0 / 10%), 1px 0 0 rgb(0 0 0 / 10%);",
                 '&:hover': {
                     backgroundColor: 'white',
-                    boxShadow: "1px 3px 8px 0px rgba(34, 60, 80, 0.2);"
+                    boxShadow: "0px 1px 2px 2px rgba(34, 60, 80, 0.13);"
                 }
             }
         },
         MuiPaper: {
             rounded: {
                 borderRadius: '8px'
+            }
+        },
+        MuiTab: {
+            root: {
+                textTransform: "none",
+                fontWeight: "bold",
+                color: "#fff"
             }
         }
     }
