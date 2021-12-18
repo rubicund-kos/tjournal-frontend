@@ -7,13 +7,15 @@ import clsx from "clsx";
 interface MainLayoutProps {
     children: React.ReactNode,
     hideComments?: boolean | undefined,
-    content960?: boolean | undefined
+    content960?: boolean | undefined,
+    content1020?: boolean | undefined
 }
 
 const MainLayout: React.FC<MainLayoutProps> =
     ({
          children,
          content960,
+         content1020,
          hideComments
      }) => {
         return (
@@ -25,7 +27,8 @@ const MainLayout: React.FC<MainLayoutProps> =
                     </div>
                     <div className={clsx(
                         classes.content,{
-                            [classes.content960]: content960
+                            [classes.content960]: content960,
+                            [classes.content1020]: content1020
                         })}>
                         {children}
                     </div>

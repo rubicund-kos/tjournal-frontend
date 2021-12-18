@@ -2,6 +2,40 @@ import classes from "./SideComments.module.scss";
 import ToggleIcon from '@material-ui/icons/ChevronRight';
 import CommentItem from "./CommentItem";
 
+const items = [
+    {
+        user: {
+            fullname: 'Мария Николаева',
+            id: 1
+        },
+        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+        post: {
+            title: 'Какая у вас дома ванна?',
+        },
+    },
+    {
+        user: {
+            fullname: 'Мария Николаева',
+            id: 1
+        },
+        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+        post: {
+            title: 'Какая у вас дома ванна?',
+        },
+    },
+    {
+        user: {
+            fullname: 'Мария Николаева',
+            id: 1
+        },
+        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+        post: {
+            title: 'Какая у вас дома ванна?',
+        },
+    },
+];
+
+
 const SideComments: React.FC = () => {
     return (
         <div className={classes.sideComments}>
@@ -9,9 +43,17 @@ const SideComments: React.FC = () => {
                 <span>Комментарии</span>
                 <ToggleIcon/>
             </h4>
-            <CommentItem/>
-            <CommentItem/>
-            <CommentItem/>
+            {items.map((item) => {
+                return (
+                    <CommentItem
+                        user={item.user}
+                        text={item.text}
+                        post={item.post}
+                    />
+                )
+            })}
+
+
 
         </div>
     )

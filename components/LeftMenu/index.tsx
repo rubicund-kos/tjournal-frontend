@@ -3,8 +3,9 @@ import FireIcon from '@material-ui/icons/WhatshotOutlined';
 import MessageIcon from '@material-ui/icons/MessageOutlined';
 import RatingIcon from '@material-ui/icons/TrendingUpOutlined';
 import ListIcon from '@material-ui/icons/FormatListBulletedOutlined';
-import {Button} from "@material-ui/core";
+import Button from "@material-ui/core/Button";
 import Link from "next/link";
+import {useRouter} from "next/router";
 
 
 const menu = [
@@ -15,6 +16,10 @@ const menu = [
 ]
 
 const LeftMenu: React.FC = () => {
+
+    const router = useRouter();
+    console.log(router);
+
     return (
         <nav className={classes.leftMenu}>
             <ul>
@@ -23,7 +28,7 @@ const LeftMenu: React.FC = () => {
                         <li key={path}>
                             <Link href={path}>
                                 <a>
-                                    <Button>
+                                    <Button variant={router.pathname === path ? "contained" : "text"}>
                                         {icon}
                                         <span>{text}</span>
                                     </Button>

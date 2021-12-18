@@ -1,0 +1,49 @@
+.paper {
+  padding: 25px 65px;
+  border-radius: 0 0 8px 8px !important;
+  p {
+    margin-bottom: 15px;
+  }
+  .paperImg {
+    margin-bottom: 15px !important;
+  }
+}
+.paperWpapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+.paperTitle {
+  font-weight: 700 !important;
+  line-height: 1.2 !important;
+  text-align: left;
+  margin-bottom: 35px !important;
+}
+.postActionsLine {
+  max-width: 240px;
+  margin-left: -14px;
+}
+
+.userLine {
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  margin-top: 30px;
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  .userAvatar {
+    border-radius: 5px;
+  }
+  .userRating {
+    color: green;
+    font-weight: 700;
+  }
+}
+.messageButton {
+  min-width: 30px !important;
+  padding: 8px !important;
+  margin-right: 15px !important;
+}
