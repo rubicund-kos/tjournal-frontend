@@ -1,0 +1,33 @@
+  .postComment {
+    display: flex;
+    flex-direction: column;
+    max-width: 600px;
+  }
+
+  .postCommentUser {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+  }
+
+  .postCommentDescription {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .postCommentAvatar {
+    margin-right: 10px;
+  }
+
+  .postCommentTime {
+    opacity: 0.7;
+  }
+
+  .answerBtn {
+    font-size: 14px;
+    cursor: pointer;
+    margin-right: 10px;
+    &:hover {
+      color: cornflowerblue;
+    }
+  }

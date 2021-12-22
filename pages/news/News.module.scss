@@ -2,7 +2,18 @@
   padding: 25px 170px;
   border-radius: 0 0 8px 8px !important;
 }
+
 .newsTitle {
   font-weight: 700 !important;
   text-align: left;
+}
+.commentsBlock {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 25px 0;
+}
+.commentsCounter {
+  font-weight: bold;
+  font-size: 19px !important;
+  margin-bottom: 25px !important;
 }

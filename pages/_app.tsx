@@ -1,8 +1,10 @@
-import '../styles/globals.scss'
-import type {AppProps} from 'next/app'
-import {CssBaseline, MuiThemeProvider} from "@material-ui/core";
+import '../styles/globals.scss';
+import 'macro-css';
+import type {AppProps} from 'next/app';
+import {MuiThemeProvider} from "@material-ui/core";
 import theme from "../theme";
 import Head from "next/head";
+
 
 const MyApp = ({Component, pageProps}: AppProps) => {
     return (

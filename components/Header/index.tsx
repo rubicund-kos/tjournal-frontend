@@ -30,9 +30,14 @@ const Header: React.FC = () => {
                     <SearchIcon/>
                     <input type="text" placeholder="Поиск"/>
                 </Box>
-                <Button variant="contained" className={classes.penButton}>
-                    Новая запись
-                </Button>
+                <Link href={"/write"}>
+                    <a>
+                        <Button variant="contained" className={classes.penButton}>
+                            Новая запись
+                        </Button>
+                    </a>
+                </Link>
+
             </Box>
             <Box className={classes.headerBlock}>
                 <IconButton >

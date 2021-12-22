@@ -1,0 +1,19 @@
+.writeForm  {
+  display: flex;
+  flex-direction: column;
+}
+
+.field {
+  input {
+    width: 100%;
+  }
+  &:after, &:before {
+    border: none !important;
+  }
+}
+.fieldTitle {
+  input {
+    font-size: 36px;
+  }
+}
+.fieldPost {}

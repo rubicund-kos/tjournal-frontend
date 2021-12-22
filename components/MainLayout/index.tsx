@@ -6,9 +6,11 @@ import clsx from "clsx";
 
 interface MainLayoutProps {
     children: React.ReactNode,
-    hideComments?: boolean | undefined,
-    content960?: boolean | undefined,
-    content1020?: boolean | undefined
+    hideMenu?: boolean,
+    hideComments?: boolean,
+    content960?: boolean,
+    content1020?: boolean,
+    className?: string
 }
 
 const MainLayout: React.FC<MainLayoutProps> =
@@ -16,17 +18,21 @@ const MainLayout: React.FC<MainLayoutProps> =
          children,
          content960,
          content1020,
-         hideComments
+         hideComments,
+         hideMenu,
+         className
      }) => {
         return (
-            <div className={classes.mainLayout}>
+            <div className={clsx(classes.mainLayout, className)}>
                 <Header/>
                 <div className={classes.mainContent}>
+                    {!hideMenu &&
                     <div>
                         <LeftMenu/>
-                    </div>
+                    </div>}
+
                     <div className={clsx(
-                        classes.content,{
+                        classes.content, {
                             [classes.content960]: content960,
                             [classes.content1020]: content1020
                         })}>

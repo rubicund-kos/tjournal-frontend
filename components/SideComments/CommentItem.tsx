@@ -34,7 +34,9 @@ const CommentItem: React.FC<CommentItemProps> = ({user, text, post}) => {
                 {text}
             </Typography>
             <a href="#">
-                <b>{post.title}</b>
+                <small>
+                    <b>{post.title}</b>
+                </small>
             </a>
         </div>
     )

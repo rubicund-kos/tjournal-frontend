@@ -43,9 +43,10 @@ const SideComments: React.FC = () => {
                 <span>Комментарии</span>
                 <ToggleIcon/>
             </h4>
-            {items.map((item) => {
+            {items.map((item, index) => {
                 return (
                     <CommentItem
+                        key={index}
                         user={item.user}
                         text={item.text}
                         post={item.post}
