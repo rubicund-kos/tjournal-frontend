@@ -1,55 +1,32 @@
 import classes from "./SideComments.module.scss";
 import ToggleIcon from '@material-ui/icons/ChevronRight';
 import CommentItem from "./CommentItem";
-
-const items = [
-    {
-        user: {
-            fullname: 'Мария Николаева',
-            id: 1
-        },
-        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-        post: {
-            title: 'Какая у вас дома ванна?',
-        },
-    },
-    {
-        user: {
-            fullname: 'Мария Николаева',
-            id: 1
-        },
-        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-        post: {
-            title: 'Какая у вас дома ванна?',
-        },
-    },
-    {
-        user: {
-            fullname: 'Мария Николаева',
-            id: 1
-        },
-        text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
-        post: {
-            title: 'Какая у вас дома ванна?',
-        },
-    },
-];
+import data from "./../../data"
+import {useState} from "react";
+import clsx from "clsx";
 
 
 const SideComments: React.FC = () => {
+
+    const [visibleComments, setVisibleComments] = useState<boolean>(true);
+
+    const toggleVisible = () => {
+        setVisibleComments(!visibleComments);
+    }
+
     return (
         <div className={classes.sideComments}>
-            <h4 className={classes.title}>
+            <h4
+                onClick={toggleVisible}
+                className={clsx(classes.title, !visibleComments && classes.hideComments)}>
                 <span>Комментарии</span>
                 <ToggleIcon/>
             </h4>
-            {items.map((item, index) => {
+            {visibleComments && data.comments.popular.map((item, index) => {
                 return (
                     <CommentItem
-                        key={index}
-                        user={item.user}
-                        text={item.text}
-                        post={item.post}
+                        key={item.id}
+                        {...item}
                     />
                 )
             })}

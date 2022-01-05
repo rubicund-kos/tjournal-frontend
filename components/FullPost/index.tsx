@@ -9,7 +9,7 @@ import UserAddIcon from '@material-ui/icons/PersonAddOutlined';
 const FullPost = () => {
     return (
         <Paper elevation={0} className={classes.paper}>
-            <div className={classes.paperWpapper}>
+            <div className={"container640"}>
                 <Typography variant={"h4"} className={classes.paperTitle}>Исследователи обнаружили крупные запасы воды в
                     системе каньонов Марса</Typography>
                 <Typography>Скопление ценного ресурса в низких широтах открывает перспективы для потенциальных

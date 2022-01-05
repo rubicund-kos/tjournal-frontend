@@ -14,6 +14,17 @@
   margin-bottom: 20px;
   margin-top: 10px;
   font-size: 18px;
+  cursor: pointer;
+  svg {
+    margin-left: 10px;
+  }
+}
+.hideComments {
+  width: 80px;
+  transform: rotateZ(-90deg) translate(-100px);
+  svg {
+    transform: rotate(-90deg);
+  }
 }
 
 //Style for CommentItem

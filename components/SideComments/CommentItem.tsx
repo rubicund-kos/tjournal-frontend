@@ -33,11 +33,11 @@ const CommentItem: React.FC<CommentItemProps> = ({user, text, post}) => {
             <Typography className={classes.commentText}>
                 {text}
             </Typography>
-            <a href="#">
-                <small>
+            <Link href={`/news/${user.id}`}>
+                <a>
                     <b>{post.title}</b>
-                </small>
-            </a>
+                </a>
+            </Link>
         </div>
     )
 }

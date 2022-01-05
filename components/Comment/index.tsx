@@ -4,17 +4,16 @@ import {Avatar, IconButton, Menu, MenuItem} from "@material-ui/core";
 import MoreIcon from '@material-ui/icons/MoreHoriz';
 
 
-interface PostCommentProps {
-    user?: {
-        fullname: string
+interface CommentProps {
+    user: {
+        fullname: string,
+        avatarUrl: string
     };
-    text?: string,
-    post?: {
-        title: string
-    }
+    text: string,
+    createdAt: string
 }
 
-const PostComment: React.FC<PostCommentProps> = ({user, text}) => {
+const Comment: React.FC<CommentProps> = ({user, text, createdAt}) => {
 
     const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
@@ -30,18 +29,17 @@ const PostComment: React.FC<PostCommentProps> = ({user, text}) => {
         <div style={{marginTop: "30px"}}>
             <div className={classes.postComment}>
                 <div className={classes.postCommentUser}>
-                    <Avatar alt="Remy Sharp"
-                            src="https://leonardo.osnova.io/20b12798-c1b3-5f2d-8c30-7af62570f29b/-/scale_crop/64x64/"
+                    <Avatar alt={user.fullname}
+                            src={user.avatarUrl}
                             className={classes.postCommentAvatar}
                     />
                     <div className={classes.postCommentDescription}>
-                        <b>Chick</b>
-                        <small className={classes.postCommentTime}>5 часов</small>
+                        <b>{user.fullname}</b>
+                        <small className={classes.postCommentTime}>{createdAt}</small>
                     </div>
                 </div>
                 <div>
-                    <p>Если бы у бабушки были колёса и звалась бы она Аннушкой, то это был бы трамвай, а не бабушка. Если
-                        бы...</p>
+                    <p>{text}</p>
                 </div>
             </div>
             <span className={classes.answerBtn}>Ответить</span>
@@ -63,4 +61,4 @@ const PostComment: React.FC<PostCommentProps> = ({user, text}) => {
     )
 }
 
-export default PostComment;
+export default Comment;

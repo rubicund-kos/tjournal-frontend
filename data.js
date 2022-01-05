@@ -4,20 +4,22 @@ module.exports = {
             {
                 id: 1,
                 user: {
-                    fullname: 'Вася Пупкин',
-                    avatarUrl: 'https://leonardo.osnova.io/104b03b4-5173-fd9f-2af9-b458dddc4a23/-/scale_crop/108x108/-/format/webp/',
+                    fullname: 'Джим Керри',
+                    avatarUrl: "https://leonardo.osnova.io/20b12798-c1b3-5f2d-8c30-7af62570f29b/-/scale_crop/64x64/",
+                    id: 1
                 },
-                text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+                text: 'Когда дела совсем плохи, остаётся только смеяться…',
                 post: {
-                    title: 'Какая у вас дома ванна?',
+                    title: 'У вас висит ковер на стене?',
                 },
                 createdAt: new Date().toString(),
             },
             {
                 id: 2,
                 user: {
-                    fullname: 'Вася Пупкин',
-                    avatarUrl: 'https://leonardo.osnova.io/f2b74c5b-6387-15f0-e6d7-1d2eacc52c09/-/scale_crop/64x64/-/format/webp/',
+                    fullname: 'Джон Траволта',
+                    avatarUrl: "https://leonardo.osnova.io/1e81be3a-a68b-eed6-acf7-1bc72aa34edd/-/scale_crop/64x64/",
+                    id: 1
                 },
                 text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
                 post: {
@@ -28,12 +30,13 @@ module.exports = {
             {
                 id: 3,
                 user: {
-                    fullname: 'Вася Пупкин',
-                    avatarUrl: 'https://leonardo.osnova.io/7161cd97-ffdc-1930-2b13-419de941c777/-/scale_crop/64x64/-/format/webp/',
+                    fullname: 'Арнольд Шварцнеггер',
+                    avatarUrl: "https://leonardo.osnova.io/868c1836-5b7b-51d1-b79b-ad421061ed0e/-/scale_crop/64x64",
+                    id: 1
                 },
-                text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+                text: 'Вчера я сделал два бутерброда, что бы съесть их на завтрак. А открыв сегодня холодильниких, их не нашел…',
                 post: {
-                    title: 'Какая у вас дома ванна?',
+                    title: 'Как найти воришку?',
                 },
                 createdAt: new Date().toString(),
             },
@@ -42,12 +45,26 @@ module.exports = {
             {
                 id: 4,
                 user: {
-                    fullname: 'Вася Пупкин',
+                    id: 1,
+                    fullname: 'Дункан Мак Клауд',
                     avatarUrl: 'https://leonardo.osnova.io/7161cd97-ffdc-1930-2b13-419de941c777/-/scale_crop/64x64/-/format/webp/',
                 },
                 text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
                 post: {
-                    title: 'Какая у вас дома ванна?',
+                    title: 'Вы моете руки перед едой?',
+                },
+                createdAt: new Date().toString(),
+            },
+            {
+                id: 5,
+                user: {
+                    id: 2,
+                    fullname: 'Силвестр Сталоне',
+                    avatarUrl: 'https://leonardo.osnova.io/7161cd97-ffdc-1930-2b13-419de941c777/-/scale_crop/64x64/-/format/webp/',
+                },
+                text: 'Теперь, каждое рабочее утро, после кровати, я перекладываюсь туда спать ещё на часок. Ну и…',
+                post: {
+                    title: 'Вы моете руки перед едой?',
                 },
                 createdAt: new Date().toString(),
             },

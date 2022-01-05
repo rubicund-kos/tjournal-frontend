@@ -3,7 +3,7 @@ import MainLayout from "../../components/MainLayout";
 const Messages = () => {
     return (
         <MainLayout>
-            <div>Messages Page</div>
+            <h1>Messages Page</h1>
         </MainLayout>
     )
 }
