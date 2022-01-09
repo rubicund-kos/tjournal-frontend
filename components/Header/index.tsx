@@ -7,7 +7,6 @@ import SearchIcon from '@material-ui/icons/Search';
 import NotificationIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import MessageIcon from '@material-ui/icons/TextsmsOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import UserIcon from '@material-ui/icons/PersonOutlineOutlined';
 import Link from "next/link";
 import AuthModal from "../AuthModal";
@@ -61,16 +60,6 @@ const Header: React.FC = () => {
                     <IconButton>
                         <NotificationIcon className={classes.headerIcon}/>
                     </IconButton>
-                    {/*<IconButton>*/}
-                    {/*    <Link href="/profile/1">*/}
-                    {/*        <a className={"d-flex align-center"}>*/}
-                    {/*            <Avatar variant="rounded" src={"https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"}>*/}
-                    {/*                N*/}
-                    {/*            </Avatar>*/}
-                    {/*            <ExpandMoreIcon/>*/}
-                    {/*        </a>*/}
-                    {/*    </Link>*/}
-                    {/*</IconButton>*/}
                     <div className={classes.loginBtn} onClick={handleClickOpen}>
                         <IconButton>
                             <UserIcon className={classes.headerIcon}/>

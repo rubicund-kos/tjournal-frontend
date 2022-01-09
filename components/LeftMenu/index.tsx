@@ -18,7 +18,6 @@ const menu = [
 const LeftMenu: React.FC = () => {
 
     const router = useRouter();
-    console.log(router);
 
     return (
         <nav className={classes.leftMenu}>

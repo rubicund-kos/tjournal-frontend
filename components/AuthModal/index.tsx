@@ -2,23 +2,20 @@ import React from 'react';
 import Image from "next/image";
 import signInImg from "./../../images/signin_img.jpg";
 import classes from "./AuthModal.module.scss";
-import {Button, Dialog, TextField} from "@material-ui/core";
-import CloseIcon from '@material-ui/icons/Close';
-import ArrowBackIcon from '@material-ui/icons/ArrowBack';
-import mailIcon from "../../images/social_img/mail.svg";
-import googleIcon from "../../images/social_img/google.svg";
-import facebookIcon from "../../images/social_img/facebook.svg";
+import {Dialog} from "@material-ui/core";
 import MainForm from "./forms/MainForm";
 import LoginForm from "./forms/LoginForm";
 import RegisterForm from "./forms/RegisterForm";
+import ArrowBackIcon from "@material-ui/icons/ArrowBack";
+import CloseIcon from "@material-ui/icons/Close";
 
 
 interface AuthModalProps {
     open: boolean,
-    handleCloseModal: () => void
+    handleClose: () => void
 }
 
-const AuthModal: React.FC<AuthModalProps> = ({open, handleCloseModal}) => {
+const AuthModal: React.FC<AuthModalProps> = ({open, handleClose}) => {
 
     const [formType, setFormType] = React.useState<'main' | 'login' | 'register'>('main');
 
@@ -26,16 +23,31 @@ const AuthModal: React.FC<AuthModalProps> = ({open, handleCloseModal}) => {
         <div>
             <Dialog
                 open={open}
-                onClose={handleCloseModal}
+                onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
                 <div className={classes.modal}>
                     <Image src={signInImg}/>
                     <div className={classes.modalContent}>
+                            <div className={classes.navigationButtons}>
+
+                                {formType === 'main' && (
+                                    <CloseIcon onClick={handleClose} className={classes.closeBtn}/>
+                                )}
+
+                                {formType === ('login' || 'register') && (
+                                    <span onClick={() => setFormType('main')} className={classes.backBtn}>
+                                        <ArrowBackIcon/>
+                                        <span>Назад</span>
+                                    </span>
+                                )}
+
+                            </div>
+
                         {formType === 'main' && (
                             <MainForm
-                                handleCloseModal={handleCloseModal}
+                                handleClose={handleClose}
                                 openLoginForm={() => setFormType('login')}/>
                         )}
                         {formType === 'login' && (

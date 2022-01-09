@@ -10,12 +10,6 @@ interface RegisterProps {
 const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
     return (
         <>
-            <div className={classes.navigationButtons}>
-                <span onClick={openMainForm} className={classes.backBtn}>
-                    <ArrowBackIcon/>
-                    <span>Назад</span>
-                </span>
-            </div>
             <div className={classes.modalContainer}>
                 <h2>Регистрация</h2>
                 <form noValidate autoComplete="off">

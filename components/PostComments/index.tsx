@@ -14,8 +14,6 @@ const PostComments: React.FC = () => {
         setActiveTab(newValue);
     }
     const comments = data.comments[activeTab === 0 ? "popular" : "new"];
-    console.log(activeTab);
-    console.log(comments);
 
     return (
         <Paper style={{marginTop: "20px"}}>

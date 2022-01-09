@@ -8,16 +8,13 @@ import facebookIcon from "../../../images/social_img/facebook.svg";
 import React from "react";
 
 interface MainFormProps {
-    handleCloseModal: () => void;
-    openLoginForm: () => void
+    openLoginForm: () => void;
+    handleClose: () => void;
 }
 
-const MainForm: React.FC<MainFormProps> = ({handleCloseModal, openLoginForm}) => {
+const MainForm: React.FC<MainFormProps> = ({openLoginForm}) => {
     return (
         <>
-            <div className={classes.navigationButtons}>
-                <CloseIcon onClick={handleCloseModal} className={classes.closeBtn}/>
-            </div>
             <div className={classes.modalContainer}>
                 <h2>Вход в TJ</h2>
                 <Button
