@@ -1,0 +1,58 @@
+.modal {
+  display: flex;
+}
+.modalContent {
+  width: 430px;
+}
+.navigationButtons {
+  min-height: 100px;
+  position: relative;
+  .closeBtn {
+    position: absolute;
+    right: 12px;
+    top: 12px;
+  }
+  .backBtn {
+    position: absolute;
+    opacity: .7;
+    left: 12px;
+    top: 12px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    svg {
+      margin-left: -5px;
+      margin-right: 5px;
+    }
+  }
+}
+.modalContainer {
+  max-width: 330px;
+  margin: 0 auto;
+}
+.socialBtn {
+  position: relative;
+  margin-bottom: 20px !important;
+}
+.socialBtnIcon {
+  position: absolute;
+  top: 8px;
+  left: 5px;
+}
+.socialBtnText {
+  margin-left: 5px;
+}
+
+.simpleBtn {
+  margin: 15px 0;
+  padding: 0;
+  border: 0;
+  font-size: 16px;
+  color: #4684d9;
+  cursor: pointer;
+  background: 0 0;
+  transition: .2s ease;
+  &:hover {
+    color: #cd192e
+  }
+}

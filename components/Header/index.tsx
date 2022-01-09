@@ -8,20 +8,21 @@ import NotificationIcon from '@material-ui/icons/NotificationsNoneOutlined';
 import MessageIcon from '@material-ui/icons/TextsmsOutlined';
 import MenuIcon from '@material-ui/icons/Menu';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import UserIcon from '@material-ui/icons/PersonOutlineOutlined';
 import Link from "next/link";
-import SignInModal from "../SignInModal";
+import AuthModal from "../AuthModal";
 
 
 const Header: React.FC = () => {
 
-    const [open, setOpen] = React.useState(false);
+    const [openAuthModal, setOpenAuthModal] = React.useState(false);
 
     const handleClickOpen = () => {
-        setOpen(true);
+        setOpenAuthModal(true);
     };
 
     const handleClose = () => {
-        setOpen(false);
+        setOpenAuthModal(false);
     };
 
 
@@ -54,28 +55,31 @@ const Header: React.FC = () => {
 
                 </Box>
                 <Box className={classes.headerBlock}>
-                    <Button onClick={handleClickOpen}>
-                        Войти
-                    </Button>
-                    <IconButton >
+                    <IconButton>
                         <MessageIcon className={classes.headerIcon}/>
                     </IconButton>
                     <IconButton>
                         <NotificationIcon className={classes.headerIcon}/>
                     </IconButton>
-                    <IconButton>
-                        <Link href="/profile/1">
-                            <a className={"d-flex align-center"}>
-                                <Avatar variant="rounded" src={"https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"}>
-                                    N
-                                </Avatar>
-                                <ExpandMoreIcon/>
-                            </a>
-                        </Link>
-                    </IconButton>
+                    {/*<IconButton>*/}
+                    {/*    <Link href="/profile/1">*/}
+                    {/*        <a className={"d-flex align-center"}>*/}
+                    {/*            <Avatar variant="rounded" src={"https://image.freepik.com/free-vector/bearded-man-avatar-man-vector-portrait_9385-36.jpg"}>*/}
+                    {/*                N*/}
+                    {/*            </Avatar>*/}
+                    {/*            <ExpandMoreIcon/>*/}
+                    {/*        </a>*/}
+                    {/*    </Link>*/}
+                    {/*</IconButton>*/}
+                    <div className={classes.loginBtn} onClick={handleClickOpen}>
+                        <IconButton>
+                            <UserIcon className={classes.headerIcon}/>
+                            <span className={classes.loginBtnText}>Войти</span>
+                        </IconButton>
+                    </div>
                 </Box>
             </div>
-            <SignInModal open={open} handleClose={handleClose}/>
+            <AuthModal open={openAuthModal} handleClose={handleClose}/>
         </>
 
     )

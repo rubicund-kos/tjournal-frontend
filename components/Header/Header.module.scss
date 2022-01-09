@@ -58,3 +58,12 @@
   stroke-width: 1% !important;
   stroke: black;
 }
+.loginBtn {
+  display: flex;
+  align-items: center;
+  .loginBtnText {
+    font-size: 16px;
+    font-weight: bold;
+    margin-left: 5px;
+  }
+}
