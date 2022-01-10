@@ -3,6 +3,7 @@ import classes from "./MainLayout.module.scss"
 import LeftMenu from "../LeftMenu";
 import SideComments from "../SideComments";
 import clsx from "clsx";
+import React from "react";
 
 interface MainLayoutProps {
     children: React.ReactNode,

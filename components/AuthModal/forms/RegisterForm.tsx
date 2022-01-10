@@ -1,58 +1,46 @@
 import classes from "../AuthModal.module.scss";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import {Button, TextField} from "@material-ui/core";
 import React from "react";
+import {FormProvider, useForm} from "react-hook-form";
+import {yupResolver} from "@hookform/resolvers/yup";
+import FormField from "../../FormField";
+import {registerFormSchema} from "../../../utils/schemas/registerValidation";
+import FormButton from "../../FormButton";
 
 interface RegisterProps {
     openMainForm: () => void
 }
 
 const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
+
+    const form = useForm({
+        mode: "onChange",
+        resolver: yupResolver(registerFormSchema)
+    });
+    const onSubmit = (data: any) => console.log(data);
+
     return (
         <>
             <div className={classes.modalContainer}>
                 <h2>Регистрация</h2>
-                <form noValidate autoComplete="off">
-                    <TextField
-                        className={"mb-30"}
-                        id="fullname"
-                        label="Имя и Фамилия"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                    />
-                    <TextField
-                        className={"mb-30"}
-                        id="email"
-                        label="Почта"
-                        type="email"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                    />
-                    <TextField
-                        className={"mb-30"}
-                        id="password"
-                        label="Пароль"
-                        type="password"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                    />
-                    <div>
-                        <Button color={"primary"} variant="contained" fullWidth>
-                            Зарегистрироваться
-                        </Button>
+                <FormProvider {...form}>
+                    <form autoComplete="off" onSubmit={form.handleSubmit(onSubmit)}>
+                        <FormField name={"fullname"} label="Имя и Фамилия"/>
+                        <FormField name={"email"} label="Почта"/>
+                        <FormField name={"password"} label="Пароль"/>
+                        <div>
+                            <FormButton text="Зарегистрироваться"/>
 
-                        <span>Уже есть аккаунт?&nbsp;</span>
-                        <button
-                            className={classes.simpleBtn}
-                            onClick={openMainForm}>
-                            Войти
-                        </button>
-                    </div>
+                            <span>Уже есть аккаунт?&nbsp;</span>
+                            <button
+                                className={classes.simpleBtn}
+                                onClick={openMainForm}>
+                                Войти
+                            </button>
+                        </div>
 
-                </form>
+                    </form>
+                </FormProvider>
+
             </div>
 
         </>

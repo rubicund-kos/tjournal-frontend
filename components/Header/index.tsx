@@ -40,10 +40,10 @@ const Header: React.FC = () => {
                             height={50}
                         /></a>
                     </Link>
-                    <Box className={classes.searchBlock}>
+                    <div className={classes.searchBlock}>
                         <SearchIcon/>
                         <input type="text" placeholder="Поиск"/>
-                    </Box>
+                    </div>
                     <Link href={"/write"}>
                         <a>
                             <Button variant="contained" className={classes.penButton}>

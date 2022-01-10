@@ -1,10 +1,10 @@
 import classes from "../AuthModal.module.scss";
-import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import {Button, TextField} from "@material-ui/core";
 import React from "react";
-import {useForm} from "react-hook-form";
+import {useForm, FormProvider} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {loginFormSchema} from "../../../utils/schemas/loginValidation";
+import FormField from "../../FormField";
+import FormButton from "../../FormButton";
 
 
 interface LoginFormProps {
@@ -14,8 +14,8 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) => {
 
-    const {register, formState, handleSubmit} = useForm({
-        mode: "onSubmit",
+    const form = useForm({
+        mode: "onChange",
         resolver: yupResolver(loginFormSchema)
     });
 
@@ -25,41 +25,20 @@ const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) =
         <>
             <div className={classes.modalContainer}>
                 <h2>Вход через почту</h2>
-                <form onSubmit={handleSubmit(onSubmit)}>
-                    <TextField
-                        {...register("email")}
-                        error={!!formState.errors.email?.message}
-                        helperText={formState.errors.email?.message}
-                        className={"mb-30"}
-                        name="email"
-                        label="Почта"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
+                <FormProvider {...form}>
+                    <form onSubmit={form.handleSubmit(onSubmit)}>
+                        <FormField name={"email"} label={"Почта"}/>
+                        <FormField name={"password"} label={"Пароль"}/>
+                        <div>
+                            <FormButton text="Войти"/>
+                            <button className={classes.simpleBtn} onClick={openRegisterForm}>
+                                Регистрация
+                            </button>
+                        </div>
 
-                    />
-                    <TextField
-                        {...register("password")}
-                        error={!!formState.errors.password?.message}
-                        helperText={formState.errors.password?.message}
-                        className={"mb-30"}
-                        name="password"
-                        label="Пароль"
-                        type="password"
-                        variant="outlined"
-                        size="small"
-                        fullWidth
-                    />
-                    <div>
-                        <Button type="submit" color={"primary"} variant="contained" fullWidth>
-                            Войти
-                        </Button>
-                        <button className={classes.simpleBtn} onClick={openRegisterForm}>
-                            Регистрация
-                        </button>
-                    </div>
+                    </form>
+                </FormProvider>
 
-                </form>
             </div>
 
         </>
