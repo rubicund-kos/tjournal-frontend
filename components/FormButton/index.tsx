@@ -1,5 +1,5 @@
 import {Button} from "@material-ui/core";
-import React from "react";
+import React, {useEffect} from "react";
 import {useFormContext} from "react-hook-form";
 
 interface FormButtonProps {
@@ -10,7 +10,7 @@ const FormButton:React.FC<FormButtonProps> = ({text}) => {
     const form = useFormContext();
     return (
         <Button
-            disabled={!form.formState.isValid}
+            disabled={!form.formState.isValid || form.formState.isSubmitting}
             type="submit"
             color={"primary"}
             variant="contained"

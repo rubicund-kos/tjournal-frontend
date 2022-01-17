@@ -5,6 +5,9 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import FormField from "../../FormField";
 import {registerFormSchema} from "../../../utils/schemas/registerValidation";
 import FormButton from "../../FormButton";
+import {RegisterUserDto} from "../../../utils/api/types";
+import {userApi} from "../../../utils/api";
+import {setCookie} from "nookies";
 
 interface RegisterProps {
     openMainForm: () => void
@@ -16,7 +19,19 @@ const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
         mode: "onChange",
         resolver: yupResolver(registerFormSchema)
     });
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit =  async (dto: RegisterUserDto) => {
+        try {
+            const data = await userApi.register(dto);
+            // setCookie(null, 'authToken', 'value', {
+            //     maxAge: 30 * 24 * 60 * 60,
+            //     path: '/',
+            // })
+            console.log(data);
+        } catch (err) {
+            alert('ошибка при регистрации')
+            console.warn('Ошибка при регистрации', err)
+        }
+    }
 
     return (
         <>
@@ -24,11 +39,13 @@ const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
                 <h2>Регистрация</h2>
                 <FormProvider {...form}>
                     <form autoComplete="off" onSubmit={form.handleSubmit(onSubmit)}>
-                        <FormField name={"fullname"} label="Имя и Фамилия"/>
+                        <FormField name={"fullName"} label="Имя и Фамилия"/>
                         <FormField name={"email"} label="Почта"/>
                         <FormField name={"password"} label="Пароль"/>
                         <div>
-                            <FormButton text="Зарегистрироваться"/>
+                            <FormButton
+                                text={'Зарегистрироваться'}
+                            />
 
                             <span>Уже есть аккаунт?&nbsp;</span>
                             <button
