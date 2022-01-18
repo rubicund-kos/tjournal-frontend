@@ -5,6 +5,9 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import {loginFormSchema} from "../../../utils/schemas/loginValidation";
 import FormField from "../../FormField";
 import FormButton from "../../FormButton";
+import {LoginDto} from "../../../utils/api/types";
+import {userApi} from "../../../utils/api";
+import {setCookie} from "nookies";
 
 
 interface LoginFormProps {
@@ -19,7 +22,20 @@ const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) =
         resolver: yupResolver(loginFormSchema)
     });
 
-    const onSubmit = (data: any) => console.log(data);
+    const onSubmit =  async (dto: LoginDto) => {
+        try {
+            const data = await userApi.login(dto);
+            console.log('Backend answer at login user:', data)
+            setCookie(null, 'authToken', data.token, {
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/',
+            })
+            console.log(data);
+        } catch (err) {
+            alert('ошибка при регистрации')
+            console.warn('Ошибка при регистрации', err)
+        }
+    }
 
     return (
         <>

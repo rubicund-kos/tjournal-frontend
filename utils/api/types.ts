@@ -8,3 +8,12 @@ export type RegisterUserDto = {
     email: string;
     password: string;
 }
+
+export type ResponseAuthUser = {
+    createdAt: string;
+    email: string;
+    fullName: string;
+    id: number;
+    token: string;
+    updatedAt: string;
+}

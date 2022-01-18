@@ -5,7 +5,7 @@ import {yupResolver} from "@hookform/resolvers/yup";
 import FormField from "../../FormField";
 import {registerFormSchema} from "../../../utils/schemas/registerValidation";
 import FormButton from "../../FormButton";
-import {RegisterUserDto} from "../../../utils/api/types";
+import {RegisterUserDto, ResponseRegisterUser} from "../../../utils/api/types";
 import {userApi} from "../../../utils/api";
 import {setCookie} from "nookies";
 
@@ -22,10 +22,11 @@ const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
     const onSubmit =  async (dto: RegisterUserDto) => {
         try {
             const data = await userApi.register(dto);
-            // setCookie(null, 'authToken', 'value', {
-            //     maxAge: 30 * 24 * 60 * 60,
-            //     path: '/',
-            // })
+            console.log('Backend answer at registration new user:', data)
+            setCookie(null, 'authToken', data.token, {
+                maxAge: 30 * 24 * 60 * 60,
+                path: '/',
+            })
             console.log(data);
         } catch (err) {
             alert('ошибка при регистрации')
