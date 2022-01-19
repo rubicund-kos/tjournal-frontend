@@ -1,10 +1,11 @@
 import classes from "../AuthModal.module.scss";
-import React from "react";
+import React, {useState} from "react";
 import {useForm, FormProvider} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {loginFormSchema} from "../../../utils/schemas/loginValidation";
 import FormField from "../../FormField";
 import FormButton from "../../FormButton";
+import Alert from '@material-ui/lab/Alert';
 import {LoginDto} from "../../../utils/api/types";
 import {userApi} from "../../../utils/api";
 import {setCookie} from "nookies";
@@ -17,23 +18,24 @@ interface LoginFormProps {
 
 const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) => {
 
+    const [errorMessage, setErrorMessage] = useState<boolean>(false);
+
     const form = useForm({
         mode: "onChange",
         resolver: yupResolver(loginFormSchema)
     });
 
-    const onSubmit =  async (dto: LoginDto) => {
+    const onSubmit = async (dto: LoginDto) => {
         try {
             const data = await userApi.login(dto);
             console.log('Backend answer at login user:', data)
             setCookie(null, 'authToken', data.token, {
                 maxAge: 30 * 24 * 60 * 60,
                 path: '/',
-            })
-            console.log(data);
-        } catch (err) {
-            alert('ошибка при регистрации')
-            console.warn('Ошибка при регистрации', err)
+            });
+            setErrorMessage(false);
+        } catch (error) {
+            setErrorMessage(true);
         }
     }
 
@@ -45,6 +47,7 @@ const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) =
                     <form onSubmit={form.handleSubmit(onSubmit)}>
                         <FormField name={"email"} label={"Почта"}/>
                         <FormField name={"password"} label={"Пароль"}/>
+                        {errorMessage && <Alert severity="error" className={"mb-20"}>Неверный логин или пароль</Alert>}
                         <div>
                             <FormButton text="Войти"/>
                             <button className={classes.simpleBtn} onClick={openRegisterForm}>
@@ -53,6 +56,7 @@ const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) =
                         </div>
 
                     </form>
+
                 </FormProvider>
 
             </div>
