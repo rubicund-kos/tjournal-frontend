@@ -9,6 +9,8 @@ import {RegisterUserDto} from "../../../utils/api/types";
 import {userApi} from "../../../utils/api";
 import {setCookie} from "nookies";
 import Alert from "@material-ui/lab/Alert";
+import {setUserData} from "../../../redux/slices/user";
+import {useAppDispatch} from "../../../redux/hooks";
 
 interface RegisterProps {
     openMainForm: () => void
@@ -16,8 +18,8 @@ interface RegisterProps {
 
 const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
 
-    //? Форма регистрации и логина можно сделать одним компонентом? Отличие только в полях и возможно обработке ошибок
 
+    const dispatch = useAppDispatch();
     const [errorMessage, setErrorMessage] = useState<boolean>(false);
 
     const form = useForm({
@@ -33,6 +35,7 @@ const RegisterForm: React.FC<RegisterProps> = ({openMainForm}) => {
                 path: '/',
             });
             setErrorMessage(false);
+            dispatch(setUserData(data));
         } catch (error) {
             setErrorMessage(true);
         }

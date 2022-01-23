@@ -10,9 +10,15 @@ import MenuIcon from '@material-ui/icons/Menu';
 import UserIcon from '@material-ui/icons/PersonOutlineOutlined';
 import Link from "next/link";
 import AuthModal from "../AuthModal";
+import {useAppSelector} from "../../redux/hooks";
+import {selectUserData} from "../../redux/slices/user";
 
 
 const Header: React.FC = () => {
+
+    // Примечание работы этой функции, написано в redux/hook.ts. В данном контексте он вернет нам данные
+    // type ResponseAuthUser
+    const userData = useAppSelector(selectUserData);
 
     const [openAuthModal, setOpenAuthModal] = React.useState(false);
 
@@ -61,10 +67,21 @@ const Header: React.FC = () => {
                         <NotificationIcon className={classes.headerIcon}/>
                     </IconButton>
                     <div className={classes.loginBtn} onClick={handleClickOpen}>
-                        <IconButton>
-                            <UserIcon className={classes.headerIcon}/>
-                            <span className={classes.loginBtnText}>Войти</span>
-                        </IconButton>
+                        {userData
+                            ? <Link href={"profile/1"}>
+                                <a>
+                                    <Avatar
+                                        className={"avatar"}
+                                        alt="Вася Пупкин"
+                                        src="https://leonardo.osnova.io/8806b720-afb7-5d71-89b1-4c4332010b71/-/scale_crop/64x64/"/>
+                                </a>
+                            </Link>
+
+                            : <IconButton>
+                                <UserIcon className={classes.headerIcon}/>
+                                <span className={classes.loginBtnText}>Войти</span>
+                            </IconButton>
+                        }
                     </div>
                 </Box>
             </div>

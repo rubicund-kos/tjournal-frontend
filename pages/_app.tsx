@@ -4,6 +4,16 @@ import type {AppProps} from 'next/app';
 import {MuiThemeProvider} from "@material-ui/core";
 import theme from "../theme";
 import Head from "next/head";
+import {Provider} from "react-redux";
+import store from "../redux/store";
+
+
+{/*
+ Возможный рефакторинг и доработки
+ 1. Форму регистрации и логина можно зарефакторить и сделать одним компонентом(возможно).
+ 2. Авторицазию или логинизацию сделать через async Thunk.
+ 
+ */}
 
 
 const MyApp = ({Component, pageProps}: AppProps) => {
@@ -20,7 +30,9 @@ const MyApp = ({Component, pageProps}: AppProps) => {
                     rel="stylesheet"/>
             </Head>
             <MuiThemeProvider theme={theme}>
-                <Component {...pageProps} />
+                <Provider store={store}>
+                    <Component {...pageProps} />
+                </Provider>
             </MuiThemeProvider>
         </>
 

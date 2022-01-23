@@ -9,6 +9,8 @@ import Alert from '@material-ui/lab/Alert';
 import {LoginDto} from "../../../utils/api/types";
 import {userApi} from "../../../utils/api";
 import {setCookie} from "nookies";
+import {useAppDispatch} from "../../../redux/hooks";
+import {setUserData} from "./../../../redux/slices/user"
 
 
 interface LoginFormProps {
@@ -17,6 +19,8 @@ interface LoginFormProps {
 }
 
 const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) => {
+
+    const dispatch = useAppDispatch();
 
     const [errorMessage, setErrorMessage] = useState<boolean>(false);
 
@@ -34,6 +38,7 @@ const LoginForm: React.FC<LoginFormProps> = ({openMainForm, openRegisterForm}) =
                 path: '/',
             });
             setErrorMessage(false);
+            dispatch(setUserData(data));
         } catch (error) {
             setErrorMessage(true);
         }
